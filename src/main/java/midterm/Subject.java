@@ -22,7 +22,7 @@ public class Subject extends Observable{
         }
         DataPoint<String, Integer> dataPoint = new DataPoint<>(ind, val);
         data.add(dataPoint);
-        super.notifyAllObservers();
+        notifyAllObservers();
         return dataPoint;
     }
 
@@ -35,7 +35,7 @@ public class Subject extends Observable{
                 }
             }
         }
-        super.notifyAllObservers();
+        notifyAllObservers();
         return null;
     }
 

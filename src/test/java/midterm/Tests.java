@@ -59,4 +59,22 @@ public class Tests {
         Assert.assertNull(datNR);
         Assert.assertEquals(dat1R.getIndex(), dat1.getIndex());
     }
+
+    @Test
+    public void testCompleted() throws IOException{
+        Subject subject = new Subject();
+        BarChartMonitor barChartMonitor = new BarChartMonitor(subject , "chart");
+        File file = new File("chart.jpeg");
+        PieChartMonitor pieChartMonitor = new PieChartMonitor(subject, "pie");
+        File file2 = new File("pie.jpeg");
+        subject.attach(barChartMonitor);
+        subject.attach(pieChartMonitor);
+        subject.addData("val1", 1);
+        subject.addData("val2", 4);
+        subject.addData("val3", 8);
+        subject.addData("val4", 9);
+        subject.addData("val5", 2);
+        Assert.assertTrue(file.exists());
+        Assert.assertTrue(file2.exists());
+    }
 }
