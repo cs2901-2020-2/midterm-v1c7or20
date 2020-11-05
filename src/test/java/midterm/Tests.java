@@ -3,6 +3,8 @@ package midterm;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class Tests {
     @Test
     public void tesDataPoint() {
@@ -12,10 +14,14 @@ public class Tests {
     }
 
     @Test
-    public void testAttach() {
+    public void testAttach() throws IOException {
+        Observable toTest = new Observable();
+        Subject subject = new Subject();
+        subject.addData("val", 12);
+        BarChartMonitor bar = new BarChartMonitor(subject,"dummyPath");
+        toTest.attach(bar);
+        toTest.notifyAllObservers();
+        Assert.assertTrue(true,"testAttachAndNotify");
     }
 
-    @Test
-    public void testNotifyAllObservers() {
-    }
 }

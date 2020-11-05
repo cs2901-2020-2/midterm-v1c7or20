@@ -11,8 +11,8 @@ import java.io.IOException;
 
 public class BarChartMonitor implements CommandsObservers {
 
-    final private Subject data;
-    final private String path;
+    private final Subject data;
+    private final String path;
 
     public BarChartMonitor(Subject newData, String newPath){
         data = newData;

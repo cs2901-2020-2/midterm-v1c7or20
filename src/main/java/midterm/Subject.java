@@ -1,6 +1,7 @@
 package midterm;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Subject extends Observable{
@@ -8,12 +9,15 @@ public class Subject extends Observable{
 
     public Subject(){
         super();
+        data = new ArrayList<>();
     }
 
     public DataPoint<String, Integer> addData (String ind, Integer val) throws IOException {
-        for (DataPoint<String, Integer> point : data){
-            if (point.getIndex().equals(ind)){
-                return null;
+        if (!data.isEmpty()){
+            for (DataPoint<String, Integer> point : data){
+                if (point.getIndex().equals(ind)){
+                    return null;
+                }
             }
         }
         DataPoint<String, Integer> dataPoint = new DataPoint<>(ind, val);
@@ -23,10 +27,12 @@ public class Subject extends Observable{
     }
 
     public DataPoint<String, Integer> removeData(String ind) throws IOException{
-        for (DataPoint<String, Integer> point : data){
-            if (point.getIndex().equals(ind)){
-                data.remove(point);
-                return point;
+        if (!data.isEmpty()) {
+            for (DataPoint<String, Integer> point : data) {
+                if (point.getIndex().equals(ind)) {
+                    data.remove(point);
+                    return point;
+                }
             }
         }
         super.notifyAllObservers();

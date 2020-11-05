@@ -10,8 +10,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class PieChartMonitor implements CommandsObservers {
-    final private Subject data;
-    final private String path;
+    private final Subject data;
+    private final String path;
 
     public PieChartMonitor(Subject newData, String newPath){
         data = newData;
