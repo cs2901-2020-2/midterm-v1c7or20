@@ -29,5 +29,15 @@ public class Tests {
     @Test
     public void testBarChart() throws IOException {
         BarChartMonitor barChartMonitor = new BarChartMonitor(new Subject(), "dummyPath2");
+        barChartMonitor.executeAndUpdate();
+        File file = new File("dummyPath2.jpeg");
+        Assert.assertTrue(file.exists());
+    }
+
+    public void testPieChart() throws IOException {
+        PieChartMonitor pieChartMonitor = new PieChartMonitor(new Subject(), "dummyPath3");
+        pieChartMonitor.executeAndUpdate();
+        File file = new File("dummyPath3.jpeg");
+        Assert.assertTrue(file.exists());
     }
 }
