@@ -19,25 +19,25 @@ public class Tests {
         Observable toTest = new Observable();
         Subject subject = new Subject();
         subject.addData("val", 12);
-        BarChartMonitor bar = new BarChartMonitor(subject,"dummyPath");
+        BarChartMonitor bar = new BarChartMonitor("dummyPath");
         toTest.attach(bar);
-        toTest.notifyAllObservers();
+        toTest.notifyAllObservers(subject);
         File file = new File("dummyPath.jpeg");
         Assert.assertTrue(file.exists());
     }
 
     @Test
     public void testBarChart() throws IOException {
-        BarChartMonitor barChartMonitor = new BarChartMonitor(new Subject(), "dummyPath2");
-        barChartMonitor.executeAndUpdate();
+        BarChartMonitor barChartMonitor = new BarChartMonitor( "dummyPath2");
+        barChartMonitor.executeAndUpdate(new Subject());
         File file = new File("dummyPath2.jpeg");
         Assert.assertTrue(file.exists());
     }
 
     @Test
     public void testPieChart() throws IOException {
-        PieChartMonitor pieChartMonitor = new PieChartMonitor(new Subject(), "dummyPath3");
-        pieChartMonitor.executeAndUpdate();
+        PieChartMonitor pieChartMonitor = new PieChartMonitor("dummyPath3");
+        pieChartMonitor.executeAndUpdate(new Subject());
         File file = new File("dummyPath3.jpeg");
         Assert.assertTrue(file.exists());
     }
@@ -63,9 +63,9 @@ public class Tests {
     @Test
     public void testCompleted() throws IOException{
         Subject subject = new Subject();
-        BarChartMonitor barChartMonitor = new BarChartMonitor(subject , "chart");
+        BarChartMonitor barChartMonitor = new BarChartMonitor("chart");
         File file = new File("chart.jpeg");
-        PieChartMonitor pieChartMonitor = new PieChartMonitor(subject, "pie");
+        PieChartMonitor pieChartMonitor = new PieChartMonitor( "pie");
         File file2 = new File("pie.jpeg");
         subject.attach(barChartMonitor);
         subject.attach(pieChartMonitor);

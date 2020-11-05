@@ -3,5 +3,5 @@ package midterm;
 import java.io.IOException;
 
 public interface CommandsObservers {
-    void executeAndUpdate() throws IOException;
+    void executeAndUpdate(Subject data) throws IOException;
 }

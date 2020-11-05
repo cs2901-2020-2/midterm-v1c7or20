@@ -13,9 +13,9 @@ public class Observable {
         observers.add(observer);
     }
 
-    public void notifyAllObservers() throws IOException {
+    public void notifyAllObservers(Subject subject) throws IOException {
         for (CommandsObservers observer : observers) {
-            observer.executeAndUpdate();
+            observer.executeAndUpdate(subject);
         }
     }
 

@@ -11,15 +11,13 @@ import java.io.IOException;
 
 public class BarChartMonitor implements CommandsObservers {
 
-    private final Subject data;
     private final String path;
 
-    public BarChartMonitor(Subject newData, String newPath){
-        data = newData;
+    public BarChartMonitor(String newPath){
         path = newPath + ".jpeg";
     }
 
-    public void executeAndUpdate() throws IOException {
+    public void executeAndUpdate(Subject data) throws IOException {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
         for (DataPoint<String, Integer> point : data.getData()){

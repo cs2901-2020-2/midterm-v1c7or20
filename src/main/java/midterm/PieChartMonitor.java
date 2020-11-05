@@ -10,15 +10,13 @@ import java.io.File;
 import java.io.IOException;
 
 public class PieChartMonitor implements CommandsObservers {
-    private final Subject data;
     private final String path;
 
-    public PieChartMonitor(Subject newData, String newPath){
-        data = newData;
+    public PieChartMonitor( String newPath){
         path = newPath + ".jpeg";
     }
 
-    public void executeAndUpdate() throws IOException {
+    public void executeAndUpdate(Subject data) throws IOException {
         DefaultPieDataset  dataset = new DefaultPieDataset();
 
         for (DataPoint<String, Integer> point : data.getData()){
