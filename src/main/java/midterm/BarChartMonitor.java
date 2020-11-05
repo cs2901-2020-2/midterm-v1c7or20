@@ -16,7 +16,7 @@ public class BarChartMonitor implements CommandsObservers {
 
     public BarChartMonitor(Subject newData, String newPath){
         data = newData;
-        path = newPath;
+        path = newPath + ".jpeg";
     }
 
     public void executeAndUpdate() throws IOException {

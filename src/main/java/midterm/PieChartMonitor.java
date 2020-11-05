@@ -15,7 +15,7 @@ public class PieChartMonitor implements CommandsObservers {
 
     public PieChartMonitor(Subject newData, String newPath){
         data = newData;
-        path = newPath;
+        path = newPath + ".jpeg";
     }
 
     public void executeAndUpdate() throws IOException {

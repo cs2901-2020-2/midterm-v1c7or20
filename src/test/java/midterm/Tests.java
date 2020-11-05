@@ -3,6 +3,7 @@ package midterm;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Tests {
@@ -21,7 +22,12 @@ public class Tests {
         BarChartMonitor bar = new BarChartMonitor(subject,"dummyPath");
         toTest.attach(bar);
         toTest.notifyAllObservers();
-        Assert.assertTrue(true,"testAttachAndNotify");
+        File file = new File("dummyPath.jpeg");
+        Assert.assertTrue(file.exists());
     }
 
+    @Test
+    public void testBarChart() throws IOException {
+        BarChartMonitor barChartMonitor = new BarChartMonitor(new Subject(), "dummyPath2");
+    }
 }
