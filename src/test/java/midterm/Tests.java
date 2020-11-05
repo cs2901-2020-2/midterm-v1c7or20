@@ -34,6 +34,7 @@ public class Tests {
         Assert.assertTrue(file.exists());
     }
 
+    @Test
     public void testPieChart() throws IOException {
         PieChartMonitor pieChartMonitor = new PieChartMonitor(new Subject(), "dummyPath3");
         pieChartMonitor.executeAndUpdate();
